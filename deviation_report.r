@@ -1,6 +1,3 @@
-#create simulation deviation report
- root <-  "/Users/edmun/Library/CloudStorage/OneDrive-Personal/Edmundo-ITESM/3.Proyectos/51. WB Decarbonization Project/Croatia_CaseStudy/"
-
 #target iso code  
  iso_code3 <- "HRV"
 #define year of comparison and reference primary id of simulation
@@ -8,10 +5,10 @@
  ref_primary_id <- 0
 
 #load mapping table 
- mapping <- read.csv(paste0(root,"/Code/mapping.csv"))
+ mapping <- read.csv("/source_files/mapping.csv"))
 
 #load raw simulation
- slt <-  read.csv(paste0(root,"/simulations raw/sisepuede_results_sisepuede_run_ssp.csv"))
+ slt <-  read.csv("/simulations_output/sisepuede_results_sisepuede_run_2024.csv")
 
 #vs <- colnames(slt) 
 #slt[slt$time_period==0 & slt$primary_id==0, subset(vs,grepl("co2e_co2_agrc",vs)==TRUE)]
@@ -30,8 +27,7 @@
   }
 
 #now load edgar and compare
-dir.data <- "/Users/edmun/Library/CloudStorage/OneDrive-Personal/Edmundo-ITESM/3.Proyectos/51. WB Decarbonization Project/World ensamble/"
-edgar <- read.csv(paste0(dir.data,"CSC-GHG_emissions-April2024_to_calibrate.csv"))
+edgar <- read.csv("source_files/CSC-GHG_emissions-April2024_to_calibrate.csv")
 edgar <- subset(edgar,Code==iso_code3)
 edgar$Edgar_Class<- paste(edgar$CSC.Subsector,edgar$Gas,sep=":")
 
@@ -53,10 +49,10 @@ edgar <- edgar[edgar$Year==refy,c("Edgar_Class","Edgar_value")]
  report_1 <- merge(report_1,edgar,by="Edgar_Class",all.x=TRUE)
  report_1$diff <- (report_1$simulation-report_1$Edgar_value)/report_1$Edgar_value
  report_1$Year <- refy
- write.csv(report_1,paste0(root,"/scaled_results/detailed_diff_report.csv"))
+ write.csv(report_1, "/scaled_results/detailed_diff_report.csv")
 
 #report 2 
  report_2 <- aggregate(list(simulation=report_1$simulation,Edgar_value=report_1$Edgar_value),list(Subsector=report_1$Subsector),sum,na.rm=TRUE)
  report_2$diff <- (report_2$simulation-report_2$Edgar_value)/report_2$Edgar_value
  report_2$Year <- refy
- write.csv(report_2,paste0(root,"/scaled_results/sector_diff_report.csv"))
+ write.csv(report_2, "/scaled_results/sector_diff_report.csv")
