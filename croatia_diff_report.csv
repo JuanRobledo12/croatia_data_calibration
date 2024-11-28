@@ -1,0 +1,39 @@
+Edgar_Class,diff_percentage
+AG - Crops:CH4,94545.37293731056
+AG - Crops:CO2,1273.8711412728248
+AG - Crops:N2O,-76.19566792073766
+EN - Electricity/Heat:CH4,41.07229946331887
+EN - Electricity/Heat:CO2,108.02691649740584
+EN - Electricity/Heat:N2O,89.760565828807
+EN - Fugitive Emissions:CH4,-41.016501203047426
+EN - Fugitive Emissions:CO2,-85.91636592025522
+EN - Fugitive Emissions:N2O,-96.86358747757956
+LULUCF - Forest Land:CH4,
+LULUCF - Forest Land:CO2,-80.95319854456685
+EN - Manufacturing/Construction:CH4,180.84295695888088
+EN - Manufacturing/Construction:CO2,88.16133000845844
+EN - Manufacturing/Construction:N2O,224.37893686076
+IN - Industrial Processes:CH4,1933.5296445105944
+IN - Industrial Processes:CO2,204.70100147660412
+IN - Industrial Processes:HFC,137.1379336526262
+IN - Industrial Processes:N2O,169.84400994905872
+IN - Industrial Processes:PFC,inf
+IN - Industrial Processes:SF6,-100.0
+LULUCF - Deforestation:CH4,
+LULUCF - Deforestation:CO2,341.1009067223773
+AG - Livestock:CH4,-97.60777962551492
+AG - Livestock:N2O,50.64142141020195
+AG - Livestock:CH4,15.215986656863759
+EN - Building:CH4,-95.4122699267828
+EN - Building:CO2,174.84886448460938
+EN - Building:N2O,-67.61100953510281
+LULUCF - Organic Soil:CO2,19.36141246476294
+LULUCF - Organic Soil:N2O,
+EN - Transportation:CH4,-30.86463133259132
+EN - Transportation:CO2,-52.779135073432116
+EN - Transportation:N2O,-18.247305559722378
+Waste - Wastewater Treatment:CH4,-10.59097256273232
+Waste - Wastewater Treatment:N2O,340.0743877640742
+Waste - Solid Waste:CH4,-33.68099632248993
+Waste - Solid Waste:CO2,1514260.061795756
+Waste - Solid Waste:N2O,-77.28645514262234
