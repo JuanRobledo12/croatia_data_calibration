@@ -5,7 +5,7 @@ import numpy as np
 # Base directory paths
 base_path = os.getcwd()  # Set to the current working directory or customize
 source_files_path = os.path.join(base_path, "source_files")
-simulation_output_path = os.path.join(base_path, "simulation_output")
+simulation_output_path = os.path.join(base_path, "simulation_files")
 output_path = os.path.join(base_path, "reports")
 
 # Target ISO code and reference year/id
@@ -17,7 +17,7 @@ ref_primary_id = 0
 mapping = pd.read_csv(os.path.join(source_files_path, "mapping.csv"))
 
 # Load raw simulation data
-slt = pd.read_csv(os.path.join(simulation_output_path, "sisepuede_results_sisepuede_run_2024.csv"))
+slt = pd.read_csv(os.path.join(simulation_output_path, "MODEL_OUTPUT.csv"))
 
 # Estimate emission totals for the initial year
 slt['Year'] = slt['time_period'] + 2015
@@ -75,12 +75,12 @@ print(report_1['_merge'].value_counts())
 # Calculate differences and save reports
 report_1['diff'] = (report_1['simulation'] - report_1['Edgar_value']) / report_1['Edgar_value']
 report_1['Year'] = refy
-report_1.to_csv(os.path.join(base_path, "reports/detailed_diff_report.csv"), index=False)
+report_1.to_csv(os.path.join(base_path, "reports/detailed_diff_report_v2.csv"), index=False)
 
 report_2 = report_1.groupby('Subsector').agg({'simulation': 'sum', 'Edgar_value': 'sum'}).reset_index()
 report_2['diff'] = (report_2['simulation'] - report_2['Edgar_value']) / report_2['Edgar_value']
 report_2['Year'] = refy
 os.makedirs(output_path, exist_ok=True)
-report_2.to_csv(os.path.join(output_path, "sector_diff_report.csv"), index=False)
+report_2.to_csv(os.path.join(output_path, "sector_diff_report_v2.csv"), index=False)
 
 print("Report generation completed.")
